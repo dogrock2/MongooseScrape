@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary rounded my-1">
+    <span class="navbar-brand text-light" id="title">
+        <h2>Mongo Scraper</h2>
+    </span>
+    <div class="navbar mt-2" id="navbarNav">
+        <ul id="navLst">
+            <li class="nav-item">
+                <span class="nav-link text-light currentLink rounded">Home</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light mr-3" href="/saved">Saved Articles(<span class="savedCntSpan">0</span>)</a>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link bg-danger rounded text-light" id="scrapeBtn">Scrape New Articles!</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="row px-3">
+    <div class="col-12 text-center d-flex justify-content-center flex-column rounded" id="bgPic">
+        <div class="d-flex text-primary align-self-center">
+            <span id="mainHeading">Mongo Scraper</span>
+        </div>
+        <div class="d-flex text-primary align-self-center">
+            <span id="secondaryHeading">NY Times Edition</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" id="resultsDivMain">
+        {{#if dbResult}}
+            {{#each dbResult}} 
+                <div class='px-2 newDiv bg-warning rounded my-1 py-2'>
+                    {{#if img}}
+                       <img src="{{img}}" class='thumbImg mr-2'>
+                    {{/if}}
+                    <span class='titleSpan' style="font-family: 'Spectral SC', serif;"><b><u>{{title}}</u></b></span>
+                    <p class="font-italic text-light newsDesc">{{desc}}</p>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <a class='newsLink' href="{{link}}">{{link}}</a>
+                        </div>
+                        <div class='col-md-1'>
+                            <button class='btn btn-danger saveBtn mr-1'>SAVE</button>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}    
+            <div class="bg-warning rounded text-center text-light font-weight-bold my-1 py-2">
+                <span class='containerMsg'><h2>NO NEW ARTICLES ADDED YET.</h2> </span>
+            </div>
+        {{/if}}
+    </div>
+</div>

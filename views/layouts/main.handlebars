@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scrape NyTimes</title>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Cinzel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid" id="containerId">
+        {{{body}}}
+        <!-- Modal 1-->
+        <div class="modal fade" id="myModalSmall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h2 id="mainModalText">Added
+                            <span id="mainModalQty"></span> New Articles!</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="font-italic">
+                            <button class="btn btn-info modal1OkBtn">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Closes Modal 1 Div -->
+        <!-- Modal 2-->
+        <div class="modal fade" id="myModal2">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header"><h5 class="modal-title"><u>Article</u>:</h5><i>
+                        <h5 class="modal-title ml-1" id='modal2Title'>Title</h5></i>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modal2SavedMsg" class="border pl-1 pt-1">No saved Notes!</div>
+                        <form>
+                            <div class="form-group">
+                                <label for="message-text" class="form-control-label mt-2">New Note:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="modal2SaveBtn">Save Note</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Closes Modal 2 Div -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/scriptSave.js"></script>
+</body>
+
+</html>
