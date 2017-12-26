@@ -21,12 +21,10 @@ const ArticleSchema = new Schema({
   image: {
     type: String
   },
-
-  // msg: { //insert message Id here for reference
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Messages"
-  // },
-
+  
+  /**
+   * Set up as an array to allow multiple ObjectIds to be saved.
+   */
   msg:[{
       type: Schema.Types.ObjectId,
       ref: "Messages"

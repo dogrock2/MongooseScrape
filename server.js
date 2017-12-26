@@ -19,6 +19,10 @@ let databaseUri = "mongodb://localhost/scrapeNYTimes";
 
 mongoose.Promise = Promise;
 
+/**
+ * If its local it will use the local db. If its running
+ * on Heroku it will use the Heroku database.
+ */
 if(process.env.MONGODB_URI){
   mongoose.connect(process.env.MONGODB_URI);
 } else {

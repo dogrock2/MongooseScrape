@@ -1,23 +1,27 @@
 $().ready(function () {
 
+    //When page loads calls a function to get the count of saved articles.
     getSavedCnt();
 
-
+    /**
+     * After scraping, the modal pops up and this gets executed 
+     * after you hit the OK button. This code calls the default
+     * route and refreshes the page to show all scraped data.
+     */
     $('.modal1OkBtn').on('click', function () {
         $.get('/', function (data) {
             window.location.href = "/";
         });
     });
+    
+    //Calls route to scrape NYTimes and show modal.
     $('#scrapeBtn').on('click', function () {
         $.get('/scrape', function (data) {
-
             $('#mainModalQty').text(data.length);
             $('#myModalSmall').modal({
                 keyboard: false
             });
-
         });
-
     });
 
     //Closes modal
@@ -25,7 +29,10 @@ $().ready(function () {
         $('#myModalSmall').modal('hide');
     });
 
-
+    /**
+     * When you hit a save article button it gets the data from the 
+     * article that was clicked and then saved to the mongo db.
+     */
     $("#resultsDivMain").on('click', '.saveBtn', function () {
         let current = $(this);
         let currentDiv = $(this).parents('.newDiv');
@@ -50,9 +57,11 @@ $().ready(function () {
                 getSavedCnt();
             }
         });
-
     });
 
+    /**
+     * Gets the count of all the saved articles in the database.
+     */
     function getSavedCnt() {
         $.get('/getCnt', function (data) {
             $(".savedCntSpan").text(data.length);
